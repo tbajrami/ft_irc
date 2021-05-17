@@ -6,7 +6,7 @@
 /*   By: tbajrami <tbajrami@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 13:30:58 by tbajrami          #+#    #+#             */
-/*   Updated: 2021/05/14 13:41:07 by tbajrami         ###   ########lyon.fr   */
+/*   Updated: 2021/05/14 16:48:37 by tbajrami         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ class Server
 private:
 
 	struct sockaddr_in			_addr;
-	char						_ip[INET_ADDRSTRLEN];
+	char						_ip[16];
 	char						_prefix[17];
 	char						_password[32];
-	std::map<char[9], char[32]> _register;
+	std::map<int, Client>		_registered;
 	Fds							*_fds;
+	
 	
 public:
 
@@ -41,7 +42,7 @@ private:
 	void connect_serv(Params *pm);
 	void do_connect(Params *pm);
 	void getIP();
-	void send_reply(int fd, char code[3], char prefix[]);
+	void send_reply(int fd, int cmd, char prefix[]);
 
 /* MESSAGE TREATMENT */
 

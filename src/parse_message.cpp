@@ -6,28 +6,12 @@
 /*   By: tbajrami <tbajrami@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 13:41:20 by tbajrami          #+#    #+#             */
-/*   Updated: 2021/05/14 14:00:14 by tbajrami         ###   ########lyon.fr   */
+/*   Updated: 2021/05/14 14:34:20 by tbajrami         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftirc.hpp"
 #include "Server.hpp"
-
-int add_prefix(char pr[], char buf[])
-{
-    int i = 1;
-    int j = 0;
-    
-    while (buf[i] != ' ')
-    {
-        pr[j] = buf[i];
-        i++;
-        j++;
-    }
-    while (buf[i] == ' ')
-        i++;
-    return i;
-}
 
 int add_cmd(char cmd[], char buf[], int i)
 {

@@ -6,7 +6,7 @@
 /*   By: tbajrami <tbajrami@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 14:12:23 by tbajrami          #+#    #+#             */
-/*   Updated: 2021/05/14 14:06:44 by tbajrami         ###   ########lyon.fr   */
+/*   Updated: 2021/05/14 16:53:20 by tbajrami         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ void Server::getIP()
 		printf("Local ip is : %s \n" , p);
 	}
     strcpy(_ip, p);
+    ft_bzero(_prefix, 17);
     _prefix[0] = ':';
     strcat(_prefix, _ip);
+    printf("_prefix : %s\n", _prefix);
 }
 
 void Server::setFds(Fds *fds) {_fds = fds;}
@@ -136,32 +138,37 @@ void Server::do_connect(Params *pm)
 /* TREAT COMMANDS */
 /******************/
 
-void Server::send_reply(int fd, char cmd[], char prefix[])
+void Server::send_reply(int fd, int cmd, char *prefix)
 {
-    send(fd, prefix, sizeof(prefix), 0);
-    send(fd, " ", 1, 0);
-    send(fd, cmd, sizeof(cmd), 0);
-    send(fd, " :", 1, 0);
+    char *msg = msg_error(cmd);
+
+    std::string ccmd = ft_format_cmd(ft_utoa(cmd));
+    std::string to_send;
+
+    to_send += (std::string(prefix) + " " + ccmd + " " + std::string(msg) + "\r\n");
+    send(fd, to_send.c_str(), ft_strlen(to_send.c_str()), 0);
 }
 
 void Server::do_command(Message *msg, Client &client)
 {
     if (!strcmp(msg->command, "PASS"))
         passcmd(msg, client);
+    if (!strcmp(msg->command, "NICK"))
+        nickcmd(msg, client);
 }
 
 void Server::passcmd(Message *msg, Client &client)
 {
     if (client.is_register == true)
-    {
-        std::cout << std::endl << msg_error(ERR_ALREADYREGISTERED) << std::endl;
-        send_reply(client.clfd, "462", _prefix);
-        send(client.clfd, client.nickname, 9, 0);
-        send(client.clfd, " ", 1, 0);
-        send(client.clfd, msg_error(ERR_ALREADYREGISTERED), sizeof(msg_error(ERR_ALREADYREGISTERED)), 0);
-    }
+        send_reply(client.clfd, 462, _prefix);
     else if (!msg->params[0][0])
-        send(client.clfd, msg_error(ERR_NEEDMOREPARAMS), sizeof(msg_error(ERR_NEEDMOREPARAMS)), 0);
+        send_reply(client.clfd, ERR_NEEDMOREPARAMS, _prefix);
+    else
+    {
+        ft_strlcpy(client.password, msg->params[0], 32);
+        //send_reply(client.clfd, 001, _prefix);
+        send(client.clfd, "", 1, 0);
+    }
         // else if (!strcmp(msg->params[0], _password))
         // {
         //     client.is_register = true;
@@ -179,5 +186,5 @@ void Server::passcmd(Message *msg, Client &client)
 
 void Server::nickcmd(Message *msg, Client &client)
 {
-    
+    ft_strlcpy(client.nickname, msg->params[0], 9);
 }

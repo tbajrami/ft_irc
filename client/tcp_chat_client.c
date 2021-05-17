@@ -51,19 +51,14 @@ int main(int ac, char **av)
     bzero(response, 256);
     while(1)
     {
-        char all[512];
-        bzero(all, 512);
+        bzero(message, 512);
         bzero(response, 256);
         recv(net_socket, &response, sizeof(response), 0);
         printf("%s\n", response);
-        strcpy(all, ":");
-        strcat(all, pseudo);
-        strcat(all, " ");
         fgets(message, 512, stdin);
-        strcat(all, message);
-        all[strlen(all) - 1] = '\r';
-        all[strlen(all)] = '\n';
-        send(net_socket, all, strlen(all), 0);
+        message[strlen(message) - 1] = '\r';
+        message[strlen(message)] = '\n';
+        send(net_socket, message, strlen(message), 0);
     }
     close(net_socket);
 

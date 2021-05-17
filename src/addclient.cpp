@@ -6,7 +6,7 @@
 /*   By: tbajrami <tbajrami@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 12:52:51 by tbajrami          #+#    #+#             */
-/*   Updated: 2021/05/13 11:27:31 by tbajrami         ###   ########lyon.fr   */
+/*   Updated: 2021/05/14 14:14:53 by tbajrami         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int addclient(std::map<int, Client> *clients, int listener)
     else
         std::cout << "Server-accept() is OK...\n";
     std::cout << "New connection from " << inet_ntoa(nc.clientaddr.sin_addr);
+    ft_strlcpy(nc.host, inet_ntoa(nc.clientaddr.sin_addr), 16);
     std::cout << " on socket " << nc.clfd << std::endl;
     std::pair<int, Client> n(nc.clfd, nc);
     clients->insert(n);

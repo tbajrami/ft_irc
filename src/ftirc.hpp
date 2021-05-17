@@ -6,7 +6,7 @@
 /*   By: tbajrami <tbajrami@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 12:55:56 by tbajrami          #+#    #+#             */
-/*   Updated: 2021/05/14 14:05:10 by tbajrami         ###   ########lyon.fr   */
+/*   Updated: 2021/05/14 16:54:45 by tbajrami         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,11 @@ struct Client
     sockaddr_in  clientaddr;
     unsigned int addrlen;
     int          clfd;
+    char         password[32];
+    char         user[32];
     char         nickname[9];
     char         host[16];
+    char         prefix[64];
     bool         is_server;
     bool         is_register;
 };
@@ -66,3 +69,7 @@ char    *msg_error(int code);
 
 int	        ft_atoi(const char *str);
 void	    ft_bzero(void *s, size_t n);
+size_t      ft_strlen(const char *src);
+size_t      ft_strlcpy(char *dst, const char *src, size_t size);
+std::string ft_utoa(unsigned int n);
+std::string ft_format_cmd(std::string cmd);
