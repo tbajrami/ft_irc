@@ -1,0 +1,59 @@
+#+TITLE: TODO
+
+--- format :
+* type
+** priorite
+*** NOM
+
+* Fonctionnalites :
+** 1
+*** TODO mdp
+*** TODO infos/commandes serv pour INFO
+time nom hostnames whois userinfo
+*** TODO infos clients
+statut/grade diff entre chan
+
+** 2
+*** TODO communication inter-serveurs
+ex client a serv 1 client b serv 2 PRIVMSG
+
+** 3
+*** TODO ERR_*
+*** TODO RPL_*
+
+
+* Commands
+** 1
+*** TODO QUIT
+*** TODO JOIN wPASS
+*** TODO PART
+*** TODO WHO/WHOIS/WHOWAS/!\/!\
+*** TODO INFO/VERSION/STATS/ADMIN
+
+** 2
+*** TODO OPER
+*** TODO LINKS
+*** TODO TIME
+*** TODO MODE
+*** TODO NAMES
+*** TODO LIST
+*** TODO TOPIC
+*** TODO INVITE
+*** TODO KICK
+*** TODO KIlL
+*** TODO PING/PONG
+*** TODO ERROR
+
+** 3
+*** TODO SQUIT
+*** TODO CONNECT TRACE
+
+** 4 [OPTIONAL]
+*** AWAY
+*** REHASH
+*** RESTART
+*** SUMMON
+*** USERS
+*** WALLOPS
+*** USERHOST
+*** ISON
