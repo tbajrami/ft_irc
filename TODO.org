@@ -9,6 +9,7 @@
 ** 1
 *** TODO mdp
 *** TODO infos/commandes serv pour INFO
+solution possible : map<std::string, stack/set>
 time nom hostnames whois userinfo
 *** TODO infos clients
 statut/grade diff entre chan
