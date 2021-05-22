@@ -8,9 +8,8 @@
 * Fonctionnalites :
 ** 1
 *** TODO mdp
-*** TODO infos/commandes serv pour INFO
-solution possible : map<std::string, stack/set>
-time nom hostnames whois userinfo
+*** TODO infos/commandes serv pour INFO --- Fait mais doit être complété avec les connexions serveur-serveur
+time nom hostnames whois userinfo --- Pareil, manque whois, whowas
 *** TODO infos clients
 statut/grade diff entre chan
 
@@ -28,13 +27,12 @@ ex client a serv 1 client b serv 2 PRIVMSG
 *** TODO QUIT
 *** TODO JOIN wPASS
 *** TODO PART
-*** TODO WHO/WHOIS/WHOWAS/!\/!\
-*** TODO INFO/VERSION/STATS/ADMIN
+*** TODO WHOIS/WHOWAS/!\/!\
+*** TODO ADMIN
 
 ** 2
 *** TODO OPER
 *** TODO LINKS
-*** TODO TIME
 *** TODO MODE
 *** TODO NAMES
 *** TODO LIST
