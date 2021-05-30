@@ -44,7 +44,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QTextBrowser" name="textBrowser_2"/>
+         <widget class="QTextBrowser" name="textClientList"/>
         </item>
        </layout>
       </item>
@@ -75,7 +75,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QTextBrowser" name="textBrowser"/>
+         <widget class="QTextBrowser" name="textChannelList"/>
         </item>
        </layout>
       </item>

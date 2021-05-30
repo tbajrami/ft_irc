@@ -14,6 +14,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void updateClientList();
+    void updateChannelList();
+    void printLog();
 
 private:
     Ui::MainWindow *ui;
