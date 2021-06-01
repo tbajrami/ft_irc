@@ -1,0 +1,53 @@
+#+TITLE: TODO
+
+--- format :
+* type
+** priorite
+*** [STATUT] NOM
+
+* Fonctionnalites :
+** 1
+*** TODO ERR_*
+*** TODO RPL_*
+*** TODO infos client statut/grade diff entre chan
+
+
+* Commands
+** 1
+*** TODO temp parsing --PAURE
+*** TODO QUIT --PAURE
+*** TODO WHOIS/WHOWAS/!\/!\ --PAURE
+*** TODO ADMIN
+*** DONE JOIN wPASS
+*** DONE PART
+
+** 2
+*** DONE NICK :fix
+*** TODO LIST --TED
+*** TODO TOPIC --TED
+*** TODO KICK --TED
+*** TODO PING/PONG
+*** TODO ERROR
+*** DONE OPER
+*** DONE MODE
+*** DONE NAMES
+*** DONE INVITE
+*** DONE SALTED KIlL
+
+** 3
+*** DONE SALTED SQUIT
+*** DONE SALTED CONNECT TRACE
+
+** 4 [OPTIONAL]
+*** AWAY
+*** REHASH
+*** RESTART
+*** SUMMON
+*** USERS
+*** WALLOPS
+*** USERHOST
+*** ISON
+*** DONE SALTED LINKS
+*** DONE SALTED mdp
+*** DONE SALTED infos/commandes serv pour INFO --- Fait mais doit être complété avec les connexions serveur-serveurtime nom hostnames whois userinfo --- Pareil, manque whois, whowas
+*** DONE SALTED communication inter-serveurs ex client a serv 1 client b serv 2 PRIVMSG
