@@ -27,6 +27,7 @@
 *** TODO TOPIC --TED
 *** TODO KICK --TED
 *** TODO PING/PONG
+**** DONE PONG (double check)
 *** TODO ERROR
 *** DONE OPER
 *** DONE MODE
