@@ -7,14 +7,14 @@
 
 * Fonctionnalites :
 ** 1
-*** TODO ERR_*
-*** TODO RPL_*
+*** DONE ERR_*
+*** DONE RPL_*
 *** TODO infos client statut/grade diff entre chan
 
 
 * Commands
 ** 1
-*** TODO temp parsing --PAURE
+*** DONE temp parsing --PAURE
 *** TODO QUIT --PAURE
 *** TODO WHOIS/WHOWAS/!\/!\ --PAURE
 *** TODO ADMIN
@@ -26,7 +26,7 @@
 *** TODO LIST --TED
 *** TODO TOPIC --TED
 *** TODO KICK --TED
-*** TODO PING/PONG
+*** DONE PING/PONG
 *** TODO ERROR
 *** DONE OPER
 *** DONE MODE
