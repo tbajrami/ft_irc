@@ -9,25 +9,25 @@
 ** 1
 *** DONE ERR_*
 *** DONE RPL_*
-*** TODO infos client statut/grade diff entre chan
+*** DON infos client statut/grade diff entre chan
 
 
 * Commands
 ** 1
 *** DONE temp parsing --PAURE
-*** TODO QUIT --PAURE
-*** TODO WHOIS/WHOWAS/!\/!\ --PAURE
+*** DONE QUIT --PAURE
+*** DONE WHOIS/WHOWAS/!\/!\ --PAURE
 *** TODO ADMIN
 *** DONE JOIN wPASS
 *** DONE PART
 
 ** 2
 *** DONE NICK :fix
-*** TODO LIST --TED
-*** TODO TOPIC --TED
-*** TODO KICK --TED
+*** DONE LIST --TED
+*** DONE TOPIC --TED
+*** DONE KICK --TED
 *** DONE PING/PONG
-*** TODO ERROR
+*** DONE ERROR
 *** DONE OPER
 *** DONE MODE
 *** DONE NAMES
