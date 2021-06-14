@@ -97,7 +97,6 @@ void Server::kickcmd(Message *msg, Client *cl)
 					user + " :" + comment + "\r\n",
 				chan, NULL);
 		_m_chans[chan].erase(clposition(user, chan));
-		_m_nickdb[user].top()->chans.erase(
-			chposition(_m_nickdb[user].top(), chan));
+		_m_nickdb[user].top()->chans.erase(chposition(_m_nickdb[user].top(), chan));
 	}
 }

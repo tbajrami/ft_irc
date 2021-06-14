@@ -1,4 +1,5 @@
 #include "../inc/Server.hpp"
+#include <iostream>
 
 void Server::send_to_channel(std::string to_send, std::string &chan, Client *cl)
 {
@@ -167,15 +168,10 @@ void Server::treat_args(std::string chan, std::string cmd, Client *cl)
 			      arg.substr(u2);
 		else if (u2 == u1 && u2 == std::string::npos)
 			ban = arg + "!*@*";
-		for (std::vector<std::string>::iterator it =
-			     _m_banmask[chan].begin();
-		     it != _m_banmask[chan].end(); it++) {
+		for (std::vector<std::string>::iterator it = _m_banmask[chan].begin(); it != _m_banmask[chan].end(); it++) {
 			if (*it == ban && cmd[0] == '-') {
 				_m_banmask[chan].erase(it);
-				send_to_channel(":" + cl->prefix + " MODE " +
-							chan + " -b " + ban +
-							"\r\n",
-						chan, NULL);
+				send_to_channel(":" + cl->prefix + " MODE " + chan + " -b " + ban + "\r\n", chan, NULL);
 				return;
 			}
 			if (*it == ban && cmd[0] == '+')
@@ -183,22 +179,13 @@ void Server::treat_args(std::string chan, std::string cmd, Client *cl)
 		}
 		_m_whoban[ban] = cl->nickname;
 		_m_banmask[chan].push_back(ban);
-		send_to_channel(":" + cl->prefix + " MODE " + chan + " +b " +
-					ban + "\r\n",
-				chan, NULL);
-		_m_banid[ban] =
-			reinterpret_cast<uint64_t>(&_m_banmask[chan].back());
-		for (std::vector<Client *>::iterator it =
-			     _m_chans[chan].begin();
-		     it != _m_chans[chan].end(); it++) {
-			if (strmatch((*it)->prefix, ban) &&
-			    !isexcepted(*it, chan)) {
-				_m_chans[chan].erase(
-					clposition((*it)->nickname, chan));
-				_m_nickdb[(*it)->nickname].top()->chans.erase(
-					chposition(
-						_m_nickdb[(*it)->nickname].top(),
-						chan));
+		send_to_channel(":" + cl->prefix + " MODE " + chan + " +b " + ban + "\r\n", chan, NULL);
+		_m_banid[ban] = reinterpret_cast<uint64_t>(&_m_banmask[chan].back());
+		for (std::vector<Client *>::iterator it = _m_chans[chan].begin(); it != _m_chans[chan].end(); it++) {
+			if (strmatch((*it)->prefix, ban) && !isexcepted(*it, chan)) {
+				std::string nickname = (*it)->nickname;
+				_m_chans[chan].erase(clposition(nickname, chan));
+				_m_nickdb[nickname].top()->chans.erase(chposition(_m_nickdb[nickname].top(), chan));
 				return;
 			}
 		}
